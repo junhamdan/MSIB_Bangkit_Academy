@@ -1,0 +1,10 @@
+fastapi[all]
+uvicorn[standard]
+keras
+numpy
+tensorflow
+pandas
+nltk
+gunicorn
+wordcloud
+matplotlib

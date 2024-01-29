@@ -1,0 +1,8 @@
+Flask
+google-api-python-client
+python-dotenv
+google-play-scraper
+flask-cors
+beautifulsoup4
+lxml
+gunicorn

@@ -1,0 +1,19 @@
+steps:
+# Step 1: Build the Docker image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$braincore-sentiment-analysis/SentDash:$COMMIT_SHA', '.']
+
+# Step 2: Push the Docker image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$braincore-sentiment-analysis/SentDash:$COMMIT_SHA']
+
+# Step 3: Deploy the Docker image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'your-cloud-run-service'
+  - '--image=gcr.io/$braincore-sentiment-analysis/SentDash:$COMMIT_SHA'
+  - '--platform=managed'
+  - '--region=your-region'
+images: ['gcr.io/$braincore-sentiment-analysis/SentDash']
